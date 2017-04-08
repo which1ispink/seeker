@@ -2,7 +2,7 @@
 namespace Seeker\Helper;
 
 /**
- * Class responsible for parsing a url and picking out a matching route
+ * Class responsible for parsing a url, comparing it with a route, and deciding whether they match
  */
 class UrlRouteParser
 {
