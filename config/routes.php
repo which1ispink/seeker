@@ -14,6 +14,6 @@
 
 return [
     '/' => 'IndexController',
-    '/shows/' => 'ShowsController',
-    '/show/{param}/' => 'ShowController',
+    // '/shows/' => 'ShowsController',
+    // '/show/{param}/' => 'ShowController',
 ];
