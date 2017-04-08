@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: 'Exo 2', sans-serif;
+    color: #4d4d4d;
+}
+.hello {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.hello h1 {
+    font-weight: 300;
+    font-size: 4em;
+    margin: 0 0 20px;
+}
+.hello p {
+    font-weight: 300;
+}
