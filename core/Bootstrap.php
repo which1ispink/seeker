@@ -31,11 +31,11 @@ class Bootstrap
         $coreHelpersDir = __DIR__ . '/Helper/Global';
         $coreHelpers = array_diff(scandir($coreHelpersDir), ['..', '.']);
         foreach ($coreHelpers as $helperFile) {
-            include $coreHelpersDir . '/' . $helperFile;
+            include($coreHelpersDir . '/' . $helperFile);
         }
 
         // Include the constants file
-        include CONFIG_PATH . '/constants.php';
+        include(CONFIG_PATH . '/constants.php');
 
         // Include the routes file
         $routes = include(CONFIG_PATH . '/routes.php');

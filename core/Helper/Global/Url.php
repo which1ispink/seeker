@@ -47,3 +47,18 @@ function getBaseUrl()
     }
     return $baseUrl;
 }
+
+/**
+ * Similar to getBaseUrl but more user friendly
+ * Optionally accepts a path parameter that it can append to the base url it returns
+ * Appends a slash to the base url as well by default, unlike getBaseUrl
+ *
+ * @param string $path (optional)
+ * @return string
+ */
+function url($path = '')
+{
+    $path = trim($path);
+    $baseUrl = getBaseUrl() . '/';
+    return (empty($path)) ? $baseUrl : $baseUrl . $path;
+}

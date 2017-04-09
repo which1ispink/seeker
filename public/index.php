@@ -32,7 +32,7 @@ define('DATA_PATH', BASE_PATH . '/data');
 define('DOCUMENT_ROOT_PATH', BASE_PATH . '/public');
 
 // Setup autoloading
-include BASE_PATH . '/vendor/autoload.php';
+require(BASE_PATH . '/vendor/autoload.php');
 
 // Bootstrap the application and off we go!
 try {

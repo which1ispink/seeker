@@ -20,14 +20,14 @@ interface RouteInterface
      * @return string
      */
     public function getControllerClass();
-    
+
     /**
      * Returns the route's controller action
      *
      * @return string
      */
     public function getControllerAction();
-    
+
     /**
      * Returns the route's parameter values
      *

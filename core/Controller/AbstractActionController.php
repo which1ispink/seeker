@@ -12,7 +12,7 @@ abstract class AbstractActionController
      * @var ContextInterface
      */
     protected $context;
-    
+
     /**
      * @var array $params
      */

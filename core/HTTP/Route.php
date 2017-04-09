@@ -17,7 +17,7 @@ class Route implements RouteInterface
      * @var string
      */
     private $controllerClass;
-    
+
     /**
      * @var string
      */
@@ -71,7 +71,7 @@ class Route implements RouteInterface
     {
         return $this->controllerClass;
     }
-    
+
     /**
      * Returns the route's controller action
      *
@@ -81,7 +81,7 @@ class Route implements RouteInterface
     {
         return $this->controllerAction;
     }
-    
+
     /**
      * Returns the route's parameter values
      *

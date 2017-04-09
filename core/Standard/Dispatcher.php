@@ -22,7 +22,7 @@ class Dispatcher implements DispatcherInterface
         $controller = self::createControllerInstance($route, $context);
         self::callControllerAction($controller, $route);
     }
-    
+
     /**
      * Returns an instance of the route's action controller class
      *
@@ -40,7 +40,7 @@ class Dispatcher implements DispatcherInterface
         }
         return new $controller($context, $route->getParameterValues());
     }
-    
+
     /**
      * Calls a route's controller action
      *
