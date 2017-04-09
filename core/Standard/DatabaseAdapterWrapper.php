@@ -29,13 +29,13 @@ class DatabaseAdapterWrapper
     }
 
     /**
-     * Sends a database query to the database adapter and returns its result
+     * Sends a SELECT SQL query to the database adapter and returns its results as an array
      *
      * @param string $sql
      * @param array $params
-     * @return mixed
+     * @return array
      */
-    public function query($sql, $params)
+    public function executeSelectQuery($sql, $params)
     {
         $query = new DatabaseQuery($sql, $params);
         $result = self::$adapter->query($query);
@@ -44,5 +44,18 @@ class DatabaseAdapterWrapper
             $rows[] = $row;
         }
         return $rows;
+    }
+
+    /**
+     * Sends a SQL query to the database adapter and returns the raw result object
+     *
+     * @param string $sql
+     * @param array $params
+     * @return mixed
+     */
+    public function executeQuery($sql, $params)
+    {
+        $query = new DatabaseQuery($sql, $params);
+        return self::$adapter->query($query);
     }
 }
