@@ -3,6 +3,7 @@ namespace Seeker\Standard;
 
 use Seeker\HTTP\RouteInterface;
 use Seeker\Standard\ConfigurationReader;
+use Seeker\Controller\AbstractActionController;
 
 /**
  * The application dispatcher
@@ -18,8 +19,8 @@ class Dispatcher implements DispatcherInterface
      */
     public function dispatch(RouteInterface $route, ContextInterface $context)
     {
-        $controller = $this->createControllerInstance($route, $context);
-        $controller->{$route->getControllerAction()}();
+        $controller = self::createControllerInstance($route, $context);
+        self::callControllerAction($controller, $route);
     }
     
     /**
@@ -27,7 +28,7 @@ class Dispatcher implements DispatcherInterface
      *
      * @param RouteInterface $route
      * @param ContextInterface $context
-     * @return ActionControllerInterface
+     * @return AbstractActionController
      */
     public static function createControllerInstance(RouteInterface $route, ContextInterface $context)
     {
@@ -38,5 +39,23 @@ class Dispatcher implements DispatcherInterface
             );
         }
         return new $controller($context, $route->getParameterValues());
+    }
+    
+    /**
+     * Calls a route's controller action
+     *
+     * @param AbstractActionController $controller
+     * @param RouteInterface $route
+     * @return void
+     */
+    public static function callControllerAction(AbstractActionController $controller, RouteInterface $route)
+    {
+        $action = $route->getControllerAction();
+        if (! method_exists($controller, $action)) {
+            throw new \Exception(
+                "The controller action '$action' could not be found."
+            );
+        }
+        $controller->{$action}();
     }
 }

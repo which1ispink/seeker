@@ -2,6 +2,7 @@
 namespace Seeker\Standard;
 
 use Seeker\HTTP\RouteInterface;
+use Seeker\Controller\AbstractActionController;
 
 /**
  * Interface for the application dispatcher
@@ -22,7 +23,16 @@ interface DispatcherInterface
      *
      * @param RouteInterface $route
      * @param ContextInterface $context
-     * @return ActionControllerInterface
+     * @return AbstractActionController
      */
     public static function createControllerInstance(RouteInterface $route, ContextInterface $context);
+    
+    /**
+     * Calls a route's controller action
+     *
+     * @param AbstractActionController $controller
+     * @param RouteInterface $route
+     * @return void
+     */
+    public static function callControllerAction(AbstractActionController $controller, RouteInterface $route);
 }
