@@ -13,7 +13,17 @@
  */
 
 return [
-    '/' => 'IndexController',
-    // '/shows/' => 'ShowsController',
-    // '/show/{param}/' => 'ShowController',
+    '/' => [
+        'controllerClass' => 'IndexController',
+        'controllerAction' => 'index',
+    ],
+    
+    // '/shows/' => [
+    //     'controllerClass' => 'ShowsController',
+    //     'controllerAction' => 'index',
+    // ],
+    // '/shows/{param}/' => [
+    //     'controllerClass' => 'ShowsController',
+    //     'controllerAction' => 'details',
+    // ],
 ];

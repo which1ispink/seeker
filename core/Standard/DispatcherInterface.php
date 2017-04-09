@@ -16,4 +16,13 @@ interface DispatcherInterface
      * @return void
      */
     public function dispatch(RouteInterface $route, ContextInterface $context);
+    
+    /**
+     * Returns an instance of the route's action controller class
+     *
+     * @param RouteInterface $route
+     * @param ContextInterface $context
+     * @return ActionControllerInterface
+     */
+    public static function createControllerInstance(RouteInterface $route, ContextInterface $context);
 }

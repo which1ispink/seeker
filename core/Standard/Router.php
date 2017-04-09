@@ -63,7 +63,7 @@ class Router implements RouterInterface
         $matchingRoute = null;
 
         foreach ($this->routes as $route) {
-            if ($route->matches($request)) {
+            if ($route->matchesRequest($request)) {
                 $matchingRoute = $route;
                 break;
             }

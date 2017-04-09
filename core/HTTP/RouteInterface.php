@@ -12,12 +12,26 @@ interface RouteInterface
      * @param RequestInterface $request
      * @return boolean
      */
-    public function matches(RequestInterface $request);
+    public function matchesRequest(RequestInterface $request);
 
     /**
-     * Returns an instance of the route's action controller
+     * Returns the route's controller class
      *
-     * @return ActionControllerInterface
+     * @return string
      */
-    public function createController();
+    public function getControllerClass();
+    
+    /**
+     * Returns the route's controller action
+     *
+     * @return string
+     */
+    public function getControllerAction();
+    
+    /**
+     * Returns the route's parameter values
+     *
+     * @return array
+     */
+    public function getParameterValues();
 }

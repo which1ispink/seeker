@@ -42,8 +42,8 @@ class Bootstrap
 
         // Initialize the router with the application routes
         $router = new Router();
-        foreach ($routes as $path => $controller) {
-            $router->addRoute(new Route($path, $controller));
+        foreach ($routes as $path => $routeDetails) {
+            $router->addRoute(new Route($path, $routeDetails['controllerClass'], $routeDetails['controllerAction']));
         }
 
         // Initialize the dispatcher

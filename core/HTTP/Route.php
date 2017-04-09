@@ -1,7 +1,6 @@
 <?php
 namespace Seeker\HTTP;
 
-use Seeker\Standard\ConfigurationReader;
 use Seeker\Helper\UrlRouteParser;
 
 /**
@@ -18,22 +17,29 @@ class Route implements RouteInterface
      * @var string
      */
     private $controllerClass;
+    
+    /**
+     * @var string
+     */
+    private $controllerAction;
 
     /**
      * @var array
      */
-    private $controllerParams = [];
+    private $parameterValues = [];
 
     /**
      * Constructor
      *
      * @param string $path
      * @param string $controllerClass
+     * @param string $controllerAction
      */
-    public function __construct($path, $controllerClass)
+    public function __construct($path, $controllerClass, $controllerAction)
     {
         $this->path = $path;
         $this->controllerClass = $controllerClass;
+        $this->controllerAction = $controllerAction;
     }
 
     /**
@@ -42,7 +48,7 @@ class Route implements RouteInterface
      * @param RequestInterface $request
      * @return boolean
      */
-    public function matches(RequestInterface $request)
+    public function matchesRequest(RequestInterface $request)
     {
         if (! $request instanceof Request) {
             return false;
@@ -50,25 +56,39 @@ class Route implements RouteInterface
 
         $urlRouteParser = new UrlRouteParser($this->path, $request->getPath());
         if ($urlRouteParser->routeMatchesRequest()) {
-            $this->controllerParams = $urlRouteParser->getRequestParams();
+            $this->parameterValues = $urlRouteParser->getRequestParams();
             return true;
         }
         return false;
     }
 
     /**
-     * Returns an instance of the route's action controller
+     * Returns the route's controller class
      *
-     * @return ActionControllerInterface
+     * @return string
      */
-    public function createController()
+    public function getControllerClass()
     {
-        $controller = ConfigurationReader::get('action_controllers_namespace') . $this->controllerClass;
-        if (! class_exists($controller)) {
-            throw new \Exception(
-                "The action controller class '$controller' could not be found."
-            );
-        }
-        return new $controller($this->controllerParams);
+        return $this->controllerClass;
+    }
+    
+    /**
+     * Returns the route's controller action
+     *
+     * @return string
+     */
+    public function getControllerAction()
+    {
+        return $this->controllerAction;
+    }
+    
+    /**
+     * Returns the route's parameter values
+     *
+     * @return array
+     */
+    public function getParameterValues()
+    {
+        return $this->parameterValues;
     }
 }
