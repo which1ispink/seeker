@@ -15,3 +15,19 @@ $ composer install
 ```
 $ php -S localhost:8080 -t public/
 ```
+
+You can test everything is working correctly by going to http://localhost:8080 which should now display a welcome page.
+
+## Server Requirements
+
+Seeker is intended to be used with PHP 7.
+
+It would probably still work with PHP 5.6 and newer versions but that's NOT recommended.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## License
+
+The Seeker framework is licensed under the MIT license. See [License File](LICENSE.md) for more information.
