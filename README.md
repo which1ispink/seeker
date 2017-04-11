@@ -1,6 +1,6 @@
 # Seeker PHP Framework
 
-Seeker is a minimal PHP framework that helps you quickly start writing object-oriented web applications from the ground up, leaving it up to you to create your own domain models.
+Seeker is a minimal PHP framework that helps you quickly start writing web applications from the ground up. It only gives you the VC part of MVC, making no assumptions about the kind of models you want to work with, though we are fans of the domain model.
 
 ## Installation
 
