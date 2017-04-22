@@ -45,7 +45,7 @@ class Context implements ContextInterface
      * @param RequestInterface $request
      * @return Context
      */
-    public function setRequest(RequestInterface $request)
+    private function setRequest(RequestInterface $request)
     {
         $this->request = $request;
         return $this;
@@ -67,7 +67,7 @@ class Context implements ContextInterface
      * @param ResponseInterface $response
      * @return Context
      */
-    public function setResponse(ResponseInterface $response)
+    private function setResponse(ResponseInterface $response)
     {
         $this->response = $response;
         return $this;
@@ -89,7 +89,7 @@ class Context implements ContextInterface
      * @param ViewInterface $view
      * @return Context
      */
-    public function setView(ViewInterface $view)
+    private function setView(ViewInterface $view)
     {
         $this->view = $view;
         return $this;
@@ -106,7 +106,7 @@ class Context implements ContextInterface
     }
 
     /**
-     * Sends back a 404 response and a fitting template to the client
+     * Sets the response status code to 404 and the view to the default 404 template
      *
      * @return void
      */
