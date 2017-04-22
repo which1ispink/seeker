@@ -10,8 +10,7 @@ class IndexController extends AbstractActionController
 {
     public function index()
     {
-        $view = $this->context->getView();
-        $view->pass('name', 'Seeker')
-             ->setTemplate('index');
+        $this->getView()->pass('name', 'Seeker')
+                        ->setTemplate('index');
     }
 }
